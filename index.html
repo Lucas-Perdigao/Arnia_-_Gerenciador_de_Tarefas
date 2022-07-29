@@ -102,7 +102,7 @@
 
         <!-- Botões de filtos -->
         <div class="collapse" id="collapseFilter">
-            <div class="mb-3">
+            <div class="mb-3 d-flex justify-content-between">
                 <div class="d-flex mb-3" id="filterButtonsList">
                     <div class="me-1" id="filterFinishedDiv">
                         <button class="button" id="filterFinished" onclick="filterStatus('Concluído', 'filterFinished')">Concluído</button>
@@ -113,19 +113,17 @@
                     <div class="me-1" id="filterStoppedDiv">
                         <button class="button" id="filterStopped" onclick="filterStatus('Parado', 'filterStopped')">Parado</button>
                     </div>
-
-                </div>
-    
-                <!-- Campo de pesquisa -->
-                <div class="d-flex">
-                    <div class="position-relative me-1">
-                        <input class="inputSearch" id="formSearch" type="text" placeholder="Pesquisar">
-                        <button class="buttonSearch position-absolute" id="buttonSearch" onclick="search()"><i class="fa-solid fa-magnifying-glass"></i></button>
-                    </div>
                     <div>
                         <button class="button" onclick="printData('all')">Limpar filtros</button>
                     </div>
                 </div>
+    
+                <!-- Campo de pesquisa -->
+
+                    <div class="position-relative me-1">
+                        <input class="inputSearch" id="formSearch" type="text" placeholder="Pesquisar">
+                        <button class="buttonSearch position-absolute" id="buttonSearch" onclick="search()"><i class="fa-solid fa-magnifying-glass"></i></button>
+                    </div>
 
             </div>
         </div>
@@ -137,11 +135,11 @@
     <div class="row" id="contentTasks">
         <ul class="col-12 list-unstyled listTasks" id="listTasks">
             <div class="row topTasks mt-2 mb-2">
-                <div class="col-2 taskTitle"><span onclick="sortTasks('num', 'desc',)">Num</span></div>
-                <div class="col-4 taskTitle"><span onclick="sortTasks('desc', 'desc')">Descrição</span></div>
-                <div class="col-2 taskTitle"><span onclick="sortTasks('date', 'desc')">Data de entrega</span></div>
-                <div class="col-2 taskTitle"><span onclick="sortTasks('status', 'desc')">Status     <i class="fa-solid fa-sort-down"></i></span></div>
-                <div class="col-2 taskTitle"><span>Ação</span></div>
+                <div class="col-2 col-sm-2 taskTitle"><span onclick="sortTasks('num', 'desc',)">Num</span></div>
+                <div class="col-3 col-sm-4 taskTitle"><span onclick="sortTasks('desc', 'desc')">Descrição</span></div>
+                <div class="col-3 col-sm-2 taskTitle"><span onclick="sortTasks('date', 'desc')">Data de entrega</span></div>
+                <div class="col-3 col-sm-2 taskTitle"><span onclick="sortTasks('status', 'desc')">Status     <i class="fa-solid fa-sort-down"></i></span></div>
+                <div class="col-1 col-sm-2 taskTitle"><span>Ação</span></div>
             </div>
         </ul>
     </div>

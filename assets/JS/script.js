@@ -6,11 +6,11 @@
 
 //Variável que armazena o cabeçalho das tarefas
 let taskTitles = `<div class="row topTasks mt-2 mb-2">
-                    <div class="col-2 taskTitle" id="numCategory"><span onclick="sortTasks('num', 'desc')">Núm     <i class="fa-solid fa-sort-down"></i></span></div>
-                    <div class="col-4 taskTitle" id="descCategory"><span onclick="sortTasks('desc', 'desc')">Descrição     <i class="fa-solid fa-sort-down"></i></span></div>
-                    <div class="col-2 taskTitle" id="dateCategory"><span onclick="sortTasks('date', 'desc')">Data     <i class="fa-solid fa-sort-down"></i></span></div>
-                    <div class="col-2 taskTitle" id="statusCategory"><span onclick="sortTasks('status', 'desc')">Status     <i class="fa-solid fa-sort-down"></i></span></div>
-                    <div class="col-2 taskTitle">Ação</div>
+                    <div class="col-2 col-sm-2 taskTitle" id="numCategory"><span onclick="sortTasks('num', 'desc')">Núm     <i class="fa-solid fa-sort-down"></i></span></div>
+                    <div class="col-3 col-sm-4 taskTitle" id="descCategory"><span onclick="sortTasks('desc', 'desc')">Descrição     <i class="fa-solid fa-sort-down"></i></span></div>
+                    <div class="col-3 col-sm-2 taskTitle" id="dateCategory"><span onclick="sortTasks('date', 'desc')">Data     <i class="fa-solid fa-sort-down"></i></span></div>
+                    <div class="col-3 col-sm-2 taskTitle" id="statusCategory"><span onclick="sortTasks('status', 'desc')">Status     <i class="fa-solid fa-sort-down"></i></span></div>
+                    <div class="col-1 col-sm-2 taskTitle">Ação</div>
                 </div>`
 
 //Variável que armazena o valor da configuração de confirmação ou não para excluir uma tarefa. Por padrão, o valor é true

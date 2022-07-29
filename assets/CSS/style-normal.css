@@ -267,9 +267,9 @@ li:nth-child(odd) {
 }
 
 
-@media only screen and (max-width: 800px){
+@media screen and (max-width: 416px){
     body{
-        background: url("")   
+        background: url("");
     }
     .sidebar{
         border: none;
@@ -277,6 +277,6 @@ li:nth-child(odd) {
     }
     .conteudo{
         margin-left: 5%;
-        margin-right: 15%;
+        margin-right: 5%;
     }
 }
