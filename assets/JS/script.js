@@ -6,11 +6,11 @@
 
 //Variável que armazena o cabeçalho das tarefas
 let taskTitles = `<div class="row topTasks mt-2 mb-2">
-                    <div class="col-2 col-sm-2 taskTitle" id="numCategory"><span onclick="sortTasks('num', 'desc')">Núm     <i class="fa-solid fa-sort-down"></i></span></div>
-                    <div class="col-3 col-sm-4 taskTitle" id="descCategory"><span onclick="sortTasks('desc', 'desc')">Descrição     <i class="fa-solid fa-sort-down"></i></span></div>
-                    <div class="col-3 col-sm-2 taskTitle" id="dateCategory"><span onclick="sortTasks('date', 'desc')">Data     <i class="fa-solid fa-sort-down"></i></span></div>
-                    <div class="col-3 col-sm-2 taskTitle" id="statusCategory"><span onclick="sortTasks('status', 'desc')">Status     <i class="fa-solid fa-sort-down"></i></span></div>
-                    <div class="col-1 col-sm-2 taskTitle">Ação</div>
+                    <div class="col-2 taskTitle" id="numCategory"><span onclick="sortTasks('num', 'desc')">Núm     <i class="fa-solid fa-sort-down"></i></span></div>
+                    <div class="col-4 taskTitle" id="descCategory"><span onclick="sortTasks('desc', 'desc')">Descrição     <i class="fa-solid fa-sort-down"></i></span></div>
+                    <div class="col-2 taskTitle" id="dateCategory"><span onclick="sortTasks('date', 'desc')">Data     <i class="fa-solid fa-sort-down"></i></span></div>
+                    <div class="col-2 taskTitle" id="statusCategory"><span onclick="sortTasks('status', 'desc')">Status     <i class="fa-solid fa-sort-down"></i></span></div>
+                    <div class="col-2 taskTitle">Ação</div>
                 </div>`
 
 //Variável que armazena o valor da configuração de confirmação ou não para excluir uma tarefa. Por padrão, o valor é true
@@ -94,14 +94,13 @@ function openEditModal(id){
 
 //Função para abrir o modal de confirmação de exclusão de uma tarefa OU apagar a tafera diretamente caso seja a opção escolhida na configuração
 function openDeleteModal(id){
-    
-    
     if(confirmDelete == true){
         let modal = document.getElementById("modalDelete");
         modal.classList.remove("animate__fadeOut", "d-none")
         modal.classList.add("animate__fadeIn")
 
-        document.getElementById("deleteButtonDiv").innerHTML = `<button class="button" onclick="deleteTask(${id})">Sim, excluir</button>`
+        document.getElementById("deleteButtonDiv").innerHTML = `<button class="button w-100" onclick="deleteTask(${id})">Sim, excluir</button>`
+        document.getElementById("deleteButtonDivMobile").innerHTML = `<button class="button w-100" onclick="deleteTask(${id})">Sim, excluir</button>`
 
     } else{
         console.log('teste')
@@ -200,6 +199,9 @@ let printData = async () => {
     </div>
     <div id="filterStoppedDiv" class="me-1">
         <button class="button" id="filterStopped" onclick="filterStatus('Parado', 'filterStopped')">Parado</button>
+    </div>
+    <div>
+    <button class="button" id="filterReset" onclick="printData('all')">Limpar filtros</button>
     </div>`
 
 
@@ -435,6 +437,18 @@ async function sortTasks(category, sortType){
 
     //Passa a função da escrita em todos os elementos do vetor
     data.forEach(injectHTML)
+
+
+    // Como o filtro automaticamente quebra o paginamento por conta da API, é necessário fazer as exibições de uma página com exibição completa
+    quantityPaginate = "all"
+
+    document.getElementById("collapseConfigPaginate").innerHTML = `
+        <button class="button" style="width: 240px;" onclick="changePaginate('10')">
+                    Paginamento: todos
+        </button>`
+
+    document.getElementById("previousPageDiv").style.display = "none"
+    document.getElementById("nextPageDiv").style.display = "none"
 }
 
 
@@ -523,12 +537,18 @@ async function search(){
 //Função que muda o botão de filtro --------------- MELHORAR --------- CONSERTAR FILTRO/PAGINAÇÃO
 function swapFilterIcon(openOrClose){
     if (openOrClose == "open"){
-        document.getElementById("filterButtonDiv").innerHTML = 
-        `<button class="button" id="filterButton" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFilter" aria-expanded="false" aria-controls="collapseFilter" onclick="swapFilterIcon('close')"><i id="filterIcon" class="fa-solid fa-circle-chevron-up"></i>     Filtros</i></button>`
+        document.getElementById("filterButton").onclick = () =>{
+            document.getElementById("filterButton").onclick = () =>{
+                swapFilterIcon("close")
+            }
+        }
 
         } else if (openOrClose == "close"){
-            document.getElementById("filterButtonDiv").innerHTML = 
-            `<button class="button" id="filterButton" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFilter" aria-expanded="false" aria-controls="collapseFilter" onclick="swapFilterIcon('open')"><i id="filterIcon" class="fa-solid fa-circle-chevron-down"></i>     Filtros</i></button>`
+            document.getElementById("filterButton").onclick = () =>{
+                document.getElementById("filterButton").onclick = () =>{
+                    swapFilterIcon("open")
+                }
+            }
     }
 
 
@@ -587,6 +607,7 @@ function changeTheme(theme){
 function changePaginate(numPerPage){
     if (numPerPage == '10'){
         quantityPaginate = '10'
+        pageNumber = 1
 
         document.getElementById("collapseConfigPaginate").innerHTML = `
         <button class="button" style="width: 240px;" onclick="changePaginate('20')">
@@ -599,6 +620,7 @@ function changePaginate(numPerPage){
 
     } else if(numPerPage == '20'){
         quantityPaginate = '20'
+        pageNumber = 1
         
         document.getElementById("collapseConfigPaginate").innerHTML = `
         <button class="button" style="width: 240px;" onclick="changePaginate('all')">
@@ -610,6 +632,7 @@ function changePaginate(numPerPage){
         printData() 
     } else if (numPerPage == "all"){
         quantityPaginate = "all"
+        pageNumber = 1
 
         document.getElementById("collapseConfigPaginate").innerHTML = `
             <button class="button" style="width: 240px;" onclick="changePaginate('10')">

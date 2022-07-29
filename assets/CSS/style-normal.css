@@ -266,17 +266,109 @@ li:nth-child(odd) {
     font-weight: bold;
 }
 
+#botModalMobile{
+    display: none;
+}
+
+#modalDeleteMobile{
+    display: none;
+}
+
+#botModalDeleteMobile{
+    display: none;
+}
+
+@media screen and (max-width: 1100px){
+    .conteudo{
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+
+    .sidebar{
+        border: none;
+        width: 2%;
+        border-right: 0.3rem solid #D7CAE5;
+        ;
+    }
+}
 
 @media screen and (max-width: 416px){
     body{
         background: url("");
     }
+
     .sidebar{
         border: none;
         width: 1%;
     }
+
     .conteudo{
         margin-left: 5%;
         margin-right: 5%;
     }
+
+    #contentTasks{
+        font-size: 10px;
+    }
+
+    .iconLine{
+        font-size: 16px;
+    }
+
+    .contentModal{
+        width: 20rem;
+    }
+
+    #modal #formDate{
+        width: 100%;
+    }
+
+    #modal #formStatus{
+        width: 100%;
+    }
+
+    #botModalDesktop{
+        display: none;
+    }
+
+    #botModalMobile{
+        display: block !important;
+    }
+
+    div #filterButtonList{
+        display: flex !important;
+        flex-direction: column !important;
+    }
+
+    button #filterFinished{
+        width: 100% !important;
+    }
+
+    button #filterOnGoing{
+        width: 100% !important;
+    }
+
+    button #filterStopped{
+        width: 100% !important;
+    }
+
+    button #filterReset{
+        width: 100% !important;
+    }
+
+    #botModalDeleteDesktop{
+        display: none;
+    }
+
+    #botModalDeleteMobile{
+        display: block;
+    }
+
+    .buttonDeleteModalMobile{
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+
+
 }
