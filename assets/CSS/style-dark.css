@@ -1,0 +1,284 @@
+html {
+    height: 100%;
+}
+
+
+body{
+    font-family: 'Poppins', sans-serif;
+    padding: 0;
+    margin: 0 auto;
+    color: #2C2661;
+    height: 100%;
+    background: url("../barra\ amarela.png") bottom right no-repeat white;
+    background-attachment: fixed;
+}
+
+.bodyColor{
+    background-color: #1a1033
+}
+
+#loading{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 99999;
+    background-color: #694FA0;
+    top: 0;
+    left: 0;
+    display: block;    
+}
+
+#loading div{
+    display: flex;
+    justify-content: center;
+    height: 100%;
+}
+
+#loading div div{
+    display: flex;
+    justify-content: center;
+    height: 100%;
+}
+
+#loading div img{
+    align-self: center;
+}
+
+#imgLoadingEngineBig {
+    top: 7%;
+    right: 23%;
+}
+
+#imgLoadingEngineSmall {
+    width: 8%;
+    right: 21%;
+    top: 30%;
+}
+
+.conteudo{
+    margin-left: 15%;
+    margin-right: 25%;
+}
+
+.sidebar{
+    background-color: #0e1327;
+    height: 100%;
+    width: 5%;
+    display: block;
+    position: fixed;
+    border-right: 1rem solid #ce8d00;
+}
+
+.yellowbar{
+    width: 10%;
+    position: absolute;
+    right: 0rem;
+    bottom: 0rem;
+}
+
+.title{
+    color:#fbb04d;
+    font-weight: 800;
+}
+
+.title img{
+    align-self: center;
+    padding-right: 1rem;
+}
+
+.addTask{
+    color: white;
+    border-radius: 30px;
+    padding: 0.5rem 2rem;   
+    background-color: #2c1c50;
+    border: 1px solid white;
+}
+
+.addTask:hover{
+    color: #2c1c50;
+    background-color: white;
+}
+
+.topTasks{
+    font-weight: 700;
+    color: white;
+}
+
+#contentTasks{
+    font-size: 14px;
+}
+
+.taskTitle{
+    cursor: pointer;
+}
+
+
+.iconLine{
+    padding-right: 1rem;
+    cursor: pointer;
+}
+
+
+.filterOn{
+    background-color: white !important;
+    color: #2c1c50 !important;
+}
+
+.inputSearch {
+    color: white;
+    border-radius: 30px;
+    padding: 0.25rem 2.5rem;
+    background-color: #2c1c50;
+    border: 1px solid white;
+    outline: none;
+}
+
+.inputSearch::placeholder{
+    color: white;
+}
+
+.buttonSearch{
+    left: 1rem;
+    top: 0.28rem;
+    border: none;
+    background: none;
+    color: white;
+}
+
+/* Essa classe é criada somente durante a injeção do JavaScript */
+.singleTask{ 
+    color: #8d67dd;
+    padding: 0.5rem 0;
+    font-weight: 400;
+}
+
+li:nth-child(odd) {
+    background-color: #21153c;
+}
+
+
+.wordbreak{
+    word-break: break-word;
+}
+
+#modal{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(78 78 78 / 73%);
+}
+
+#modalDelete{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(78 78 78 / 73%);
+}
+
+.contentModal{
+    background-color: #1a1033;
+    width: 45rem;
+    margin: 0 auto;
+    border-radius: 0.5rem;
+    padding: 3rem;  
+}
+
+#modal div div form label{
+    font-size: 1rem;
+    font-weight: 500;
+    color: white;
+    margin: 0.5rem 0
+}
+
+.inputLine{
+    width: 100%;
+    border-radius: 1rem;
+    padding: 1rem;
+    font-weight: 500;
+    border: 1px solid white;
+    outline:none;
+    color: #2c1c50;
+}
+
+#modal #formDate{
+    width: 40%;
+    text-align: center;
+    color: #2c1c50;
+}
+
+
+#modal #formStatus{
+    width: 40%;
+    color: white;
+    border: 1px solid white;
+    border-radius: 1rem;
+    padding: 1rem;
+    font-weight: 500;
+    outline: none;
+}
+
+#cancelForm{
+    color: white;
+    text-decoration-line: underline;
+    font-weight: 500;
+    cursor: pointer;
+}
+ 
+.button{
+    color: white;
+    border-radius: 30px;
+    padding: 0.3rem 2.5rem;   
+    background-color: #2c1c50;
+    border: 1px solid white;
+    white-space: nowrap;
+}
+
+.button:hover{
+    color: #2c1c50;
+    background-color: white;
+}
+
+
+.necessary{
+    font-weight: bold;
+    color: rgb(255, 0, 0);
+}
+
+
+/* Essa classe é criada somente durante a injeção do JavaScript */
+.colorRed{
+    color: #EB5757;
+    font-weight: bold;
+}
+
+/* Essa classe é criada somente durante a injeção do JavaScript */
+.colorOrange{
+    color: #F8B04E;
+    font-weight: bold;
+}
+
+/* Essa classe é criada somente durante a injeção do JavaScript */
+.colorGreen{
+    color: #27AE60;
+    font-weight: bold;
+}
+
+@media only screen and (max-width: 700px){
+    body{
+        background: url("")   
+    }
+    .sidebar{
+        border: none;
+        width: 1%;
+    }
+    .conteudo{
+        margin-left: 5%;
+        margin-right: 15%;
+    }
+}
